@@ -85,6 +85,7 @@ export async function execute(this: IExecuteFunctions, items: INodeExecutionData
 			if (/^[a-zA-Z]:/.test(fileSelector)) {
 				fileSelector = fileSelector.replace(/\\\\/g, '/');
 			}
+			fileSelector = fileSelector.replace(/([()])/g, '\\$1');
 
 			const options = this.getNodeParameter('options', itemIndex, {});
 
